@@ -1,0 +1,3 @@
+(load "CreateMarkingStrip.lsp")
+
+(CreateMarkingStrip)
