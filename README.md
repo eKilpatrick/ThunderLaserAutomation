@@ -1,1 +1,9 @@
 # LaserMarkerAutomation
+
+The purpose of this project is to create labels and store them as dxf files so that a laser engraver can engrave these labels. 
+
+Design of the project
+-------------------
+There is a csv file called Templates.csv that stores all of the information about the different sizes of labels, including where all of the text goes on the labels and where the holes are at. All text that goes on a label is stored in another csv file with a name of your choice. When you create that csv, the size of the label associated with that file is stored in an Oracle Database. You can edit the csv's from the program if the text you want to print is changed. In order to create the dxf of all the labels, you have to add the csv's you want to a list of custom 'Label' objects and then click the button 'Create DXF'. The labels you have chosen are then stored in an xml file and a nesting algorithm is run on them to determine the best position for them to be in to save material. The coordinate locations of all the labels is then returned as another xml file. This xml file is then read and all of the labels you want to create are then stored in a text file along with their locations. Then a blank AutoCAD drawing is pulled up and the lisp file runs that reads the text file and creates the dxf. This dxf is then loaded into the laser marking software provided with the engraver, LightBurn. From here the user manually loads an acrylic sheet into the engraver and presses start. The process is rather tedious but that is because there is no way to know which text is needed for every order of labels, so it must be manually entered in each time.
+
+The next goal for this project is to incorporate a Universal Robot arm in order to load/unload acrylic sheets from the engraver so multiple dxf files can be queued to engrave subsequently.
